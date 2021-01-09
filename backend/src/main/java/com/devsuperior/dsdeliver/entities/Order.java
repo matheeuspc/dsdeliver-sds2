@@ -31,7 +31,6 @@ public class Order implements Serializable {
 	private Double longitude;
 	private Instant moment;
 	private OrderStatus status;
-	private Double total;
 
 	// Set não admite repetições do mesmo produto. Cria no banco a tabela de
 	// associação n:n
@@ -54,7 +53,6 @@ public class Order implements Serializable {
 		this.longitude = longitude;
 		this.moment = moment;
 		this.status = status;
-		this.total = total;
 	}
 
 	public Long getId() {
@@ -103,14 +101,6 @@ public class Order implements Serializable {
 
 	public void setStatus(OrderStatus status) {
 		this.status = status;
-	}
-
-	public Double getTotal() {
-		return total;
-	}
-
-	public void setTotal(Double total) {
-		this.total = total;
 	}
 
 	public Set<Product> getProducts() {
