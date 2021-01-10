@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import AsyncSelect from 'react-select/async';
 import { fetchLocalMapBox } from '../api';
-import { OrderLocationdata } from './types';
+import { OrderLocationData } from './types';
 
 const initialPosition = {
     lat: -18.92182598231539,
@@ -19,7 +19,7 @@ const initialPosition = {
     }
 
     type Props = {
-        onChangeLocation: (location: OrderLocationdata) => void;
+        onChangeLocation: (location: OrderLocationData) => void;
     }
 
     function OrderLocation({onChangeLocation} : Props) {
@@ -62,7 +62,7 @@ const initialPosition = {
                     <AsyncSelect placeholder="Digite um endereço para entregar o pedido" className="filter" loadOptions={loadOptions} 
                     onChange={value => handleChangeSelect(value as Place)}/>
                 </div>
-                <MapContainer center={address.position} zoom={13} key={address.position.lat} scrollWheelZoom>
+                <MapContainer center={address.position} zoom={13} key={address.position.lat} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
